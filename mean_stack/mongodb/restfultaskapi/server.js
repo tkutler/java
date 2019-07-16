@@ -18,12 +18,12 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 // static conten
 app.use(express.static(path.join(__dirname, "./static")));
-
+app.use(express.static( __dirname + '/public/dist/public' ));
 app.set('views', path.join(__dirname, '..client/views'));
 app.set('view engine', 'ejs');
-require('./config/mongoose.js');
-require('./models/model.js');
-require('./config/routes.js')(app);
+require('./server/config/mongoose.js');
+require('./server/models/model.js');
+require('./server/config/routes.js')(app);
 
 
 app.listen(8000, function(){
