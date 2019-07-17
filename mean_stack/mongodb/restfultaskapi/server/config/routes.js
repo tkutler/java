@@ -17,7 +17,7 @@ module.exports = function(app){
   
     })
   app.delete('/tasks/delete/:id', function(req, res) {
-    controllers.create(req, res);
+    controllers.delete(req, res);
       
         })
   app.put('/task/update/:id', function(req, res) {

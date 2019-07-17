@@ -17,7 +17,7 @@ module.exports = {
         })
     	
     },
-    create: function(req, res) {
+    show: function(req, res) {
         Tasks.findOne ({_id: req.params.id}, function (err,task){
             if (err){
                 console.log(err);
