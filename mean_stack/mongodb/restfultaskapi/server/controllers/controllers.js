@@ -43,22 +43,25 @@ module.exports = {
                 console.log(tasks);
                 res.json({message: "success", data:tasks});
             }
-    });
-},
-delete: function(req, res) {
-    Tasks.remove ({title: req.params.title}, function (err){
-        if (err){
-            console.log(err)
-        }
-        else {
-            res.redirect('/')
-        }
-    })
-},
+        })
+    },
+
+    delete: function(req, res) {
+        Tasks.remove ({_id: req.params.id}, function (err, data){
+            if (err){
+                console.log(err)
+            }
+            else {
+                res.json('/')
+            }
+        })
+    },
    
 
     put: function(req, res) {
-        Tasks.findOne ({title: req.params.title}, function (err,tasks){
+        Tasks.findOne ({_id: req.params.id}, function (err,tasks){
+            console.log(tasks)
+            console.log(req.body)
             tasks.title = req.body.title;
             tasks.description = req.body.description;
             tasks.save(function(err){
@@ -66,7 +69,7 @@ delete: function(req, res) {
                     console.log(err)
                 }
                 else{
-                    res.redirect("/")
+                    res.json({data: tasks})
                 }
             })
         })
@@ -74,4 +77,4 @@ delete: function(req, res) {
         
     	
     }
-};
+}

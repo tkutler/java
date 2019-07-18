@@ -16,11 +16,12 @@ module.exports = function(app){
     controllers.post(req, res);
   
     })
-  app.delete('/tasks/delete/:id', function(req, res) {
+  app.delete('/tasks/:id', function(req, res) {
+    console.log("in routes")
     controllers.delete(req, res);
       
-        })
-  app.put('/task/update/:id', function(req, res) {
+  })
+  app.put('/tasks/:id', function(req, res) {
     controllers.put(req, res);
 
   })

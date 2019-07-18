@@ -11,8 +11,8 @@ export class HttpService {
    //   this.getonetask();
    //   this.postTasks();
    }
-   getonetask(){
-    return this._http.get('/tasks/5d2fbdcb990784658aab3141');
+   getonetask(id){
+    return this._http.get('/tasks/'+id);
    }
    // postTasks(){
    //  let tempObservable2 = this._http.post('/tasks');
@@ -22,6 +22,25 @@ export class HttpService {
       return this._http.get('/tasks');
 
    }
+   delete(id){
+      console.log("in service delete", id)
+      return this._http.delete('/tasks/'+id);
+      
+   }
+   show(id){
+      console.log("in service delete", id)
+      return this._http.get('/tasks/'+id);
+      
+   }
+   put(id,recenttask){
+      console.log("in service edit", id)
+      console.log(recenttask)
+      return this._http.put('/tasks/'+id,recenttask.data);
+      
+   }
+   addTask(newtask){
+      return this._http.post('/tasks', newtask)
+  }
 }
 
 

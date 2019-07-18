@@ -1,14 +1,39 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
-  <button (click)="getTaskFromService()">Click me!</button>
+    <form (submit)="addTask()">
+        <!-- use the json pipe to see how newTask changes in real time -->
+        <p> {{ newTask | json }} </p>
+        <input type="text" name="newTask.title" [(ngModel)]="newTask.title" />
+        <input type="text" name="newTask.description" [(ngModel)]="newTask.description" />
+        <input type="submit" value="Create Task" />
+    </form>
+</div>
+<div>
+  <button (click)="getTaskFromService(task._id)">Click me!</button>
   <h1>Task number 20</h1>
-  <p *ngIf="task">{{ task.title }} - {{ task.description }}</p>
+  <p *ngIf="task">{{ task.title }} - {{ task.description }} </p>
+  <button (click)="delete(i._id)">Delete!</button>
+  <button (click)="edit(i._id)">Edit!</button>
 </div> 
 <div>
   <h1>All Tasks</h1>
   <button (click)="getalltasks()">Click me!</button>
   <div *ngIf="alltask" >
-    <p *ngFor = "let i of alltask">{{i.title}} - {{i.description}}</p>
+    <div *ngFor = "let i of alltask">
+      <p>{{i.title}} - {{i.description}}</p>
+       <button (click)="delete(i._id)">Delete!</button>
+       <button (click)="show(i._id)">Edit!</button>
+      </div>
+       <div>
+    <form *ngIf="recenttask" (submit)="edit(recenttask._id)">
+    <!-- use the json pipe to see how newTask changes in real time -->
+    <p> {{ recenttask | json }} </p>
+    <input type="text" name="recenttask.title" [(ngModel)]="recenttask.title" />
+    <input type="text" name="recenttask.description" [(ngModel)]="recenttask.description" />
+    <input type="submit" value="Edit Task" />
+      </form> 
+    </div>
+    
 </div>
 </div>
 
