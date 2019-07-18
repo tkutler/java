@@ -1,11 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
+  <button (click)="getTaskFromService()">Click me!</button>
   <h1>Task number 20</h1>
   <p *ngIf="task">{{ task.title }} - {{ task.description }}</p>
 </div> 
 <div>
   <h1>All Tasks</h1>
-  <p *ngFor = "let i of alltask">{{i.title}} - {{i.description}}</p>
+  <button (click)="getalltasks()">Click me!</button>
+  <div *ngIf="alltask" >
+    <p *ngFor = "let i of alltask">{{i.title}} - {{i.description}}</p>
+</div>
 </div>
 
 <router-outlet></router-outlet>

@@ -10,9 +10,10 @@ export class AppComponent implements OnInit{
   task: any; 
   alltask: any;
   constructor(private _httpService: HttpService){}
+  
+
   ngOnInit(){
-    this.getTaskFromService();
-    this.getalltasks()
+
   }
   getTaskFromService(){
     let tempObservable = this._httpService.getonetask();
