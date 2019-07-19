@@ -28,7 +28,7 @@ export class HttpService {
       
    }
    show(id){
-      console.log("in service delete", id)
+      console.log("in service show", id)
       return this._http.get('/tasks/'+id);
       
    }

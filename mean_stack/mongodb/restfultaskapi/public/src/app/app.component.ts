@@ -12,12 +12,23 @@ export class AppComponent implements OnInit{
   newTask: any;
   id: any; 
   recenttask: any;
+  selectedtask: any;
   constructor(private _httpService: HttpService){}
   
 
   ngOnInit(){
     this.newTask = { title: "", description: "" }
 
+  } 
+  select (id) {
+    console.log("in component show function", id)
+    let tempObservable = this._httpService.show(id);
+    tempObservable.subscribe(data =>{
+      console.log(data)
+      this.selectedtask = data['data']
+    }
+
+    )
   }
   addTask() {
     // Code to send off the form data (this.newTask) to the Service

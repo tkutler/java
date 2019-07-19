@@ -23,6 +23,7 @@
       <p>{{i.title}} - {{i.description}}</p>
        <button (click)="delete(i._id)">Delete!</button>
        <button (click)="show(i._id)">Edit!</button>
+       <button (click)="select(i._id)">Show!</button>
       </div>
        <div>
     <form *ngIf="recenttask" (submit)="edit(recenttask._id)">
@@ -32,6 +33,7 @@
     <input type="text" name="recenttask.description" [(ngModel)]="recenttask.description" />
     <input type="submit" value="Edit Task" />
       </form> 
+      <app-tasks *ngIf= "selectedtask" [tasktoshow]='selectedtask'></app-tasks>
     </div>
     
 </div>
