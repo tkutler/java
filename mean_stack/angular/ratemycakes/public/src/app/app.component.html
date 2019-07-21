@@ -1,0 +1,37 @@
+<div>
+        <form (submit)="addcake()">
+            <!-- use the json pipe to see how newTask changes in real time -->
+            <!-- <p> {{ newcake | json }} </p> -->
+            <input type="text" name="newcake.name" [(ngModel)]="newcake.name" />
+            <input type="text" name="newcake.url" [(ngModel)]="newcake.url" />
+            <input type="submit" value="Create Cake" />
+        </form> 
+    </div>
+<div *ngFor = "let i of allcakes" >
+        <p>{{i.name}}</p>
+        <p><img [src]="i.url" (click)="showcake(i._id)"></p>
+        <form (submit)="addreview(i._id, rating, comment)">
+                <input type="hidden" value="i_id" #id>
+                <input type="text" #rating />
+                <input type="text" #comment />
+                <input type="submit" value="Create review" />
+            </form>
+                
+    </div>
+    <div *ngIf ="show">
+        <p><img [src]="show.url"></p>
+        <p>{{show.name}}</p>
+        <!-- <p>{{show.reviews[0].rating}}</p> -->
+        
+        <div *ngFor = "let review of show.reviews">
+        -->
+        <p>{{review['rating']}}</p>
+        <p>{{review['comment']}}</p>
+        <p>{{review['createdAt']}}</p>
+        </div>
+        <!-- <p>{{reviews[cake].comment}}</p> -->
+    </div>
+
+
+
+<router-outlet></router-outlet>
