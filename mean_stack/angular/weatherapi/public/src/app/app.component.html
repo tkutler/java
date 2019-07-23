@@ -1,0 +1,8 @@
+<button [routerLink]="['/seattle']"(click)="retrieve('Seattle')">Seattle </button>
+<button [routerLink]="['/burbank']"  (click)="retrieve('Burbank')">Burbank</button>
+<button [routerLink]="['/dc']"  (click)="retrieve('Washington')">Washington,DC</button>
+<button [routerLink]="['/sanjose']" (click)="retrieve('San Jose')">San Jose</button>
+<button [routerLink]="['/chicago']"(click)="retrieve('Chicago')">Chicago</button>
+
+
+<app-sanjose [childweather]="weather"></app-sanjose>
