@@ -1,0 +1,23 @@
+<div>
+    <button [routerLink]="['/new']">Add New Author</button>
+
+
+</div>
+
+
+<div>
+<table class="table table-sm table-dark">
+<thead>
+  <tr>
+    <th scope="col">Author</th>
+    <th scope="col">Actions</th>
+
+  </tr>
+</thead>
+<tr *ngFor = "let author of allauthors">
+    <td>{{author.name}}</td>
+    <td><button [routerLink]="['/edit/'+author._id]"(click)="retrieve(author._id)">Edit</button></td>
+    <td><button (click)="ondelete(author._id)">Delete</button></td>
+</tr>
+</table>
+</div>
