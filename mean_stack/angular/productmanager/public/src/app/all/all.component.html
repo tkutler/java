@@ -1,0 +1,15 @@
+<!-- {{allProducts | json}}  -->
+<div *ngFor = "let product of allProducts">
+    <p><img [src]="product.url"> </p> 
+    <p>{{product.title}}</p>
+    <p>${{product.price}}</p>
+    <p><button (click)="ondelete(product._id)">Delete</button></p> 
+    <p><button [routerLink]="['/edit/'+product._id]"(click)="retrieve(product._id)">Edit</button></p>
+
+
+
+
+
+
+
+</div>

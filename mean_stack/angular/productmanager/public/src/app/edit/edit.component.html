@@ -1,0 +1,7 @@
+<form>
+        <input type="text" name="edit.title"[(ngModel)]="edit.title" >
+        <input type="text" name="edit.price"[(ngModel)]="edit.price"> 
+        <input type="text" name="edit.url"[(ngModel)]="edit.url">
+        <input (click)=onSubmit() type="submit" value="Edit">
+       
+    </form>
