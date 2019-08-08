@@ -1,16 +1,17 @@
 
 public class Gorilla extends Mammal {
-	public String throwSomething() {
+
+	public void throwSomething() {
 		this.energyLevel -= 5;
-		return "watchout! gorilla just threw something!";
+		System.out.println ("watchout! gorilla just threw something!");
 	}
-	public String eatBananas() {
+	public void eatBananas() {
 		this.energyLevel += 10;
-		return "yum!! the gorilla just ate a banana!";
+		System.out.println ("yum!! the gorilla just ate a banana!");
 	}
-	public String climb() {
+	public void climb() {
 		this.energyLevel -= 10;
-		return "amazing! the gorilla just climbed up the tree";
+		System.out.println ("amazing! the gorilla just climbed up the tree");
 	}
 
 }
