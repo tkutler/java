@@ -7,7 +7,7 @@ public class Human {
 	
 	public void attack(Human human) {
 		human.health -= this.strength;
-		System.out.println ("attack was made");
+		System.out.println (human + " was attacked");
 		
 	}
 
