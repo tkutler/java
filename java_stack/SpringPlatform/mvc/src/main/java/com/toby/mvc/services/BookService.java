@@ -30,6 +30,10 @@ public class BookService {
     	return bookRepository.save(updateBook);
     	
     }
+   public Book updateBook(Book updatebook) {
+	   return bookRepository.save(updatebook);
+	   
+   }
     public void deleteBook(Long id) {
     	bookRepository.deleteById(id);
    
