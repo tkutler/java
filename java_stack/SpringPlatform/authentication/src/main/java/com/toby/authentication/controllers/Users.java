@@ -13,15 +13,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.toby.authentication.models.User;
 import com.toby.authentication.service.UserService;
+import com.toby.authentication.validator.UserValidator;
 
 @Controller
 public class Users {
     private final UserService userService;
     
-    public Users(UserService userService) {
+    // NEW
+    private final UserValidator userValidator;
+    
+    // NEW
+    public Users(UserService userService, UserValidator userValidator) {
         this.userService = userService;
+        this.userValidator = userValidator;
     }
     
+
     @RequestMapping("/registration")
     public String registerForm(@ModelAttribute("user") User user) {
         return "registrationPage.jsp";
@@ -33,6 +40,7 @@ public class Users {
     
     @RequestMapping(value="/registration", method=RequestMethod.POST)
     public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
+    	userValidator.validate(user, result);
     	if(result.hasErrors()) {
     		return "registrationPage.jsp";
     	}
